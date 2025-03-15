@@ -2,29 +2,14 @@
 """
 This script installs the pandas library, imports it, and loads thyroid cancer risk data from a CSV file into a 
 pandas DataFrame. It then displays the first few rows of the DataFrame.
-Functions:
-    None
-Variables:
-    file_path (str): Path to the thyroid data CSV file.
-    thyroid_data (DataFrame): DataFrame containing the thyroid cancer risk data.
-Usage:
-    Run the script to load the thyroid cancer risk data and display the first few rows.
 """
 import pandas as pd
 import matplotlib.pyplot as plt
 import requests
 import seaborn as sns
 
-# URL of the dataset
-url = 'https://www.kaggle.com/datasets/ankushpanday1/thyroid-cancer-risk-prediction-dataset/download'
-
 # Path to save the downloaded file
 download_path = 'C:/Users/asadz/OneDrive/Documents/TMU-Project/thyroid_cancer_risk_data.csv'
-
-# Download the dataset
-#response = requests.get(url)
-#with open(download_path, 'wb') as file:
-#    file.write(response.content)
 
 # Load the data into a pandas DataFrame
 thyroid_data = pd.read_csv(download_path)
@@ -109,17 +94,3 @@ plt.figure(figsize=(12, 8))
 sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f')
 plt.title('Correlation Matrix of Continuous Variables')
 plt.show()
-
-############## PCA ##############
-import prince
-
-# Perform PCA on the thyroid_data
-dataset = prince.datasets.load_decathlon()
-decastar=dataset.query('competition == "Decastar"')
-print(decastar.head())
-pca = prince.PCA(n_components=5)
-pca = pca.fit(decastar, supplementary_columns=['rank', 'points'])
-pca.eigenvalues_summary 
-
-pca.transform(dataset).tail()
-pca.plot(dataset)
