@@ -1,9 +1,10 @@
 Big Data Analysis Project Stages:
-	1. Selecting Data
+  
+  1. Selecting Data
   2. Define Research Goals 
-	3. Preprocessing Data
+  3. Preprocessing Data
   4. Literature Review 
-	5. Model Fitting on Data
+  5. Model Fitting on Data
   6. Model Perfomance Comparison
 
 The github repository contains:
